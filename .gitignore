@@ -15,6 +15,7 @@
 !/build/fonts.css
 !/build/static/media
 !/build/index.html
+!/build/staticwebapp.config.json
 
 #auth_credentials
 /src/auth
