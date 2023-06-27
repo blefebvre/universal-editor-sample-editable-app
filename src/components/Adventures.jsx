@@ -11,7 +11,6 @@ import useGraphQL from '../api/useGraphQL';
 // import Error from './base/Error';
 import Loading from './base/Loading';
 import "./Adventures.scss";
-import Title from './base/Title';
 import {getPublishHost} from "../utils/fetchData";
 
 function AdventureItem(props) {
