@@ -89,23 +89,4 @@ function NoArticleFound() {
 	);
 }
 
-function Contributer(props) {
-
-	if (!props) {
-		return null;
-	}
-	let profilePicture = null;
-	if (props.profilePicture) {
-		profilePicture =
-			<img className="contributor-image" src={`${getPublishHost()}${props.profilePicture._path}`}
-				 alt={props.firstName}/>
-	}
-
-	return (
-		<div className="contributor">
-			{profilePicture}
-			<h3 className="contributor-name">{props.firstName} {props.lastName}</h3>
-		</div>);
-}
-
 export default ArticleDetail;

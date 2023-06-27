@@ -6,10 +6,6 @@ accordance with the terms of the Adobe license agreement accompanying
 it.
 */
 import React from 'react';
-import { Link } from 'react-router-dom';
-import Container from './base/Container';
-import Title from './base/Title';
-import Text from './base/Text';
 import Teaser from './Teaser';
 import Adventures from './Adventures';
 import "./Home.scss";
