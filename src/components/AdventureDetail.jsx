@@ -22,7 +22,7 @@ function AdventureDetail() {
 	const navigate = useNavigate();
 	const adventureSlug = slug.substring(1);
 
-	const persistentQuery = `wknd-shared/adventure-by-slug;slug=${adventureSlug}`;
+	const persistentQuery = `aem-demo-assets/adventure-by-slug;slug=${adventureSlug}`;
 
 	//Use a custom React Hook to execute the GraphQL query
 	const {data, errorMessage} = useGraphQL(persistentQuery);
@@ -76,9 +76,9 @@ function AdventureDetailRender({
 							   }) {
 	return (<div>
             <img className="adventure-detail-primaryimage"
-					 src={`${getPublishHost()}${primaryImage._path}`} alt={title} itemProp="primaryImage" itemType="image"/>			
+					 src={`${getPublishHost()}${primaryImage._path}`} alt={title} itemProp="primaryImage" itemType="image"/>
 			<div className="adventure-detail-content">
-				
+
 				<div itemProp="description"
 					 itemType="richtext">{mapJsonRichText(description.json, customRenderOptions(references))}</div>
                 <div className="adventure-detail-info">

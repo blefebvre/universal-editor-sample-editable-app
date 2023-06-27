@@ -38,13 +38,13 @@ function AdventureItem(props) {
           <div className="adventure-item-details">
               <div className="adventure-item-length pill default"><span itemProp="tripLength" itemType="text">{props.tripLength?.toLowerCase()}</span></div>
               <div className="adventure-item-price pill">$<span itemProp="price" itemType="text">{props.price}</span></div>
-          </div>  
+          </div>
       </li>
   );
 }
 
 function Adventures() {
-  const persistentQuery = 'wknd-shared/adventures-all';
+  const persistentQuery = 'aem-demo-assets/adventures-all';
   //Use a custom React Hook to execute the GraphQL query
   const { data, errorMessage } = useGraphQL(persistentQuery);
 
@@ -56,7 +56,7 @@ function Adventures() {
 
   return (
       <section id="adventures" className="adventures">
-        <Title itemID="urn:aemconnection:/content/wknd/us/en/adventures/jcr:content/root/container/container/title" itemType="text" itemProp="jcr:title"/>      
+        {/* <Title itemID="urn:aemconnection:/content/wknd/us/en/adventures/jcr:content/root/container/container/title" itemType="text" itemProp="jcr:title"/> */}
         <ul className="adventure-items">
           {
               //Iterate over the returned data items from the query

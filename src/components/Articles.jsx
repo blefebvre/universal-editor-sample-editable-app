@@ -34,7 +34,7 @@ const Article = ({_path, title, synopsis, authorFragment, slug}) => {
               </Link>
 
               <p>{`By ${authorFragment.firstName} ${authorFragment.lastName}`}</p>
-              { synopsis && 
+              { synopsis &&
                 <div className="article-content" itemProp='synopsis' itemType='richtext'>
                   {mapJsonRichText(synopsis.json)}
                 </div>
@@ -43,13 +43,13 @@ const Article = ({_path, title, synopsis, authorFragment, slug}) => {
                 <button>Read more</button>
               </Link>
             </article>
-            
+
     </li>
   );
 };
 
 const Articles = () => {
-  const persistentQuery = 'wknd-shared/articles-all';
+  const persistentQuery = 'aem-demo-assets/articles-all';
 
   //Use a custom React Hook to execute the GraphQL query
   const { data, errorMessage } = useGraphQL(persistentQuery);
