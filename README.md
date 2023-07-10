@@ -51,25 +51,8 @@ We expose this bundle to GitHub. This is happening due to the usage of internal 
 
 The flow is that we build the application locally and deploy the bundle through GitHub workflow to https://ue-remote-app.adobe.net, on each PR merged to the `main` branch.
 
-## Manual deployments
+## Deployments
 
-### Prerequisites
-Install Netlify CLI
+The application is automatically deployed on every commit/PR merge to the `main` branch.
 
-`npm install netlify-cli -g`
-
-Set the following environment variables in your terminal settings (for https://ue-remote-app.adobe.net):
-
-`NETLIFY_AUTH_TOKEN = <authentication token>`
-
-`NETLIFY_SITE_ID = <site id where to deploy>`
-
- ### Deploy commands
-Run in project root:
-
-`npm run deploy` - deploy the app at any point to a non-production link, e.g https://62ff59a019923a6f7aec439d--prismatic-panda-c194c0.netlify.app/.
-
-`npm run deploy prod` - deploy the app to the production link https://ue-remote-app.adobe.net (this is usually not needed, the application is automatically deployed on every PR merged to the `main` branch).
- 
-If case of permission issues, run `chmod +x deploy/script.sh` at the root of the project.
-
+Deployed app can be accessed at https://ue-trials-app.adobe.net
