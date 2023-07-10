@@ -53,6 +53,6 @@ The flow is that we build the application locally and deploy the bundle through 
 
 ## Deployments
 
-The application is automatically deployed on every commit/PR merge to the `main` branch.
+The application is automatically deployed on every PR merge to the `main` branch.
 
 Deployed app can be accessed at https://ue-trials-app.adobe.net
