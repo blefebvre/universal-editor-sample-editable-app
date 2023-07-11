@@ -1,4 +1,4 @@
-const {REACT_APP_DEFAULT_AUTHOR_HOST, REACT_APP_DEFAULT_PUBLISH_HOST} = process.env;
+const {REACT_APP_DEFAULT_PUBLISH_HOST} = process.env;
 
 export const fetchData = async (path) => {
 	const url = `${getAuthorHost()}/${path.split(":/")[1]}.model.json`;
