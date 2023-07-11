@@ -12,7 +12,8 @@ export const getAuthorHost = () => {
 	if (searchParams.has("authorHost")) {
 		return searchParams.get("authorHost");
 	} else {
-		return REACT_APP_DEFAULT_AUTHOR_HOST;
+		// Fall back to publish host when no authorHost query param is present
+		return getPublishHost();
 	}
 }
 
