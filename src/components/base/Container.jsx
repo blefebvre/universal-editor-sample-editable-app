@@ -8,13 +8,15 @@ const Container = ({ itemID, itemType }) => {
   const createChildComponents = (items, itemid) => {
     const components = [];
     for(let key in items) {
+      const item = items[key];
+      const isContainer = !!item[":items"];
       const props = {
         itemID: `${itemid}/${key}`,
-        itemType: items[key].richText ? "richtext" : "text",
-        data: items[key],
-        isComponent: "component"
+        itemType: isContainer ? "container" : item.richText ? "richtext" : "text",
+        data: item,
+        isComponent: isContainer ? false: "component"
       };
-      const Component =  items[key].type ? Title : Text;
+      const Component =  isContainer ? Container : item.type ? Title : Text;
       components.push(<Component key={key} {...props} />)
     }
     return components;
@@ -28,7 +30,7 @@ const Container = ({ itemID, itemType }) => {
   }, [itemID]);
   
   return (
-    <div itemScope itemID={itemID} itemType={itemType}>
+    <div classname="container" itemScope itemID={itemID} itemType={itemType}>
      {components}
     </div>
   )
