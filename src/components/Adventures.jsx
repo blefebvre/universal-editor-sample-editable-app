@@ -52,8 +52,8 @@ function Adventures() {
   if(errorMessage && getEndpoint() != null) {
     return (
       <div className="access-error">
-        <span>Unable to load data from AEM. Please click this link to log into AEM, then return to refresh the module: </span>
-        <a href={getAuthorHost()} target="_blank" rel="noopener noreferrer">{getAuthorHost()}</a>
+        <span>Unable to load data from AEM. Please log into AEM, then return to refresh the module: </span>
+        {getAuthorHost()}
       </div>
     );
   };
