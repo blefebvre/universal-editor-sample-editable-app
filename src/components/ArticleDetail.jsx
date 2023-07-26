@@ -23,7 +23,7 @@ function ArticleDetail({ article }) {
 	const navigate = useNavigate();
 	const articleSlug = slug ? slug.substring(1) : article;
 
-	const persistentQuery = `aem-demo-assets/article-by-slug;slug=${articleSlug}`;
+	const persistentQuery = `article-by-slug;slug=${articleSlug}`;
 
 	//Use a custom React Hook to execute the GraphQL query
 	const {data, errorMessage} = useGraphQL(persistentQuery);
