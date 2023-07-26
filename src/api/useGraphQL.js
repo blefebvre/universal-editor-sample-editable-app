@@ -6,7 +6,7 @@ accordance with the terms of the Adobe license agreement accompanying
 it.
 */
 import {useState, useEffect} from 'react';
-import {getAuthorHost} from "../utils/fetchData";
+import {getAuthorHost, getEndpoint} from "../utils/fetchData";
 
 const {AEMHeadless} = require('@adobe/aem-headless-client-js')
 const {GRAPHQL_ENDPOINT} = process.env;
@@ -15,7 +15,7 @@ const {GRAPHQL_ENDPOINT} = process.env;
  * Custom React Hook to perform a GraphQL query
  * @param path - Persistent query path
  */
-function useGraphQL(path) {
+function useGraphQL(queryPath) {
 	let [data, setData] = useState(null);
 	let [errorMessage, setErrors] = useState(null);
 	useEffect(() => {
@@ -25,6 +25,8 @@ function useGraphQL(path) {
 				endpoint: GRAPHQL_ENDPOINT,
 			});
 			const request = sdk.runPersistedQuery.bind(sdk);
+
+			const path = getEndpoint() + "/" + queryPath;
 
 			request(path, {}, {credentials: "include"})
 				.then(({data, errors}) => {
@@ -44,8 +46,7 @@ function useGraphQL(path) {
 		}
 
 		makeRequest();
-	}, [path]);
-
+	}, [queryPath]);
 
 	return {data, errorMessage}
 }

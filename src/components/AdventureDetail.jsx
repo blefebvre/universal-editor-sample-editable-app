@@ -22,7 +22,7 @@ function AdventureDetail() {
 	const navigate = useNavigate();
 	const adventureSlug = slug.substring(1);
 
-	const persistentQuery = `aem-demo-assets/adventure-by-slug;slug=${adventureSlug}`;
+	const persistentQuery = `adventure-by-slug;slug=${adventureSlug}`;
 
 	//Use a custom React Hook to execute the GraphQL query
 	const {data, errorMessage} = useGraphQL(persistentQuery);

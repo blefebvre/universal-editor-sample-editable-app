@@ -11,7 +11,7 @@ import useGraphQL from '../api/useGraphQL';
 // import Error from './base/Error';
 import Loading from './base/Loading';
 import "./Adventures.scss";
-import {getPublishHost} from "../utils/fetchData";
+import {getPublishHost, getAuthorHost, getEndpoint} from "../utils/fetchData";
 
 function AdventureItem(props) {
     const editorProps = {
@@ -44,12 +44,19 @@ function AdventureItem(props) {
 }
 
 function Adventures() {
-  const persistentQuery = 'aem-demo-assets/adventures-all';
+  const persistentQuery = 'adventures-all';
   //Use a custom React Hook to execute the GraphQL query
   const { data, errorMessage } = useGraphQL(persistentQuery);
 
-  //If there is an error with the GraphQL query
-  if(errorMessage) return;
+  //If there is an error with the GraphQL query, suggest that the user try logging in to the AEM author
+  if(errorMessage && getEndpoint() != null) {
+    return (
+      <div className="access-error">
+        <span>Unable to load data from AEM. Please click this link to log into AEM, then return to refresh the module: </span>
+        <a href={getAuthorHost()} target="_blank" rel="noopener noreferrer">{getAuthorHost()}</a>
+      </div>
+    );
+  };
 
   //If data is null then return a loading state...
   if(!data) return <Loading />;

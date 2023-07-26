@@ -49,7 +49,7 @@ const Article = ({_path, title, synopsis, authorFragment, slug}) => {
 };
 
 const Articles = () => {
-  const persistentQuery = 'aem-demo-assets/articles-all';
+  const persistentQuery = 'articles-all';
 
   //Use a custom React Hook to execute the GraphQL query
   const { data, errorMessage } = useGraphQL(persistentQuery);
