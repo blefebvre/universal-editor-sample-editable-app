@@ -26,8 +26,8 @@ section {
 
     .container {
       text-align: left;
-    } 
-  } 
+    }
+  }
 
   &.about-us .content {
     grid-template-columns: 1fr 3fr;
@@ -45,6 +45,14 @@ section {
     .content {
       display: inherit;
     }
+  }
+}
+
+.access-error {
+  text-align: center;
+  margin: 40px 0;
+  a {
+    text-decoration: underline;
   }
 }
 
