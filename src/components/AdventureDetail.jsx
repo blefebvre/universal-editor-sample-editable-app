@@ -19,9 +19,8 @@ function AdventureDetail() {
 	// params hook from React router
 	const {slug} = useParams();
 	const navigate = useNavigate();
-	const adventureSlug = slug.substring(1);
 
-	const persistentQuery = `adventure-by-slug;slug=${adventureSlug}`;
+	const persistentQuery = `adventure-by-slug;slug=${slug}`;
 
 	//Use a custom React Hook to execute the GraphQL query
 	const {data, errorMessage} = useGraphQL(persistentQuery);

@@ -49,7 +49,7 @@ function ArticleDetail({ article }) {
 	};
 
 	return (<div {...editorProps} className="adventure-detail">
-        <div class="adventure-detail-header">
+        <div className="adventure-detail-header">
             <button className="adventure-detail-back-nav dark" onClick={() => navigate(-1)}>
             <img className="Backbutton-icon" src={backIcon} alt="Return"/> Back
             </button>
