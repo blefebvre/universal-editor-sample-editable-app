@@ -9,7 +9,7 @@ import About from "./components/About";
 import {getAuthorHost} from "./utils/fetchData";
 import logo from "./images/wknd-logo-dk.svg";
 import "./App.scss";
-import { useSparkleAppUrl } from "./hooks";
+// import { useSparkleAppUrl } from "./hooks";
 
 const NavMenu = () => (
   <nav>
@@ -22,10 +22,11 @@ const NavMenu = () => (
 );
 
 const Header = () => {
-  const sparkleAppUrl = useSparkleAppUrl();
+  // const sparkleAppUrl = useSparkleAppUrl();
   return (
     <header className="header">
-      <a href={sparkleAppUrl}><img src={logo} className="logo" alt="WKND Logo" /></a>
+        {/*<a href={sparkleAppUrl}><img src={logo} className="logo" alt="WKND Logo" /></a>*/}
+        <img src={logo} className="logo" alt="WKND Logo" />
       <NavMenu />
       <button className="dark">Sign in</button>
     </header>
@@ -46,17 +47,17 @@ function App() {
     <HelmetProvider>
       <div className="App">
         <Helmet>
-          <meta name="urn:adobe:aem:editor:aemconnection" content={`aem:${getAuthorHost()}`}/>
+          <meta name="urn:adobe:aue:system:aemconnection" content={`aem:${getAuthorHost()}`}/>
         </Helmet>
         <Router>
           <Header />
           <hr/>
           <main>
             <Routes>
-              <Route path="/adventure:slug" element={<AdventureDetail />} />
+              <Route path="/adventure/:slug" element={<AdventureDetail />} />
               <Route path="/" element={<Home />} />
               <Route path="/articles" element={<Articles />} />
-              <Route path="/articles/article:slug" element={<ArticleDetail />} />
+              <Route path="/articles/article/:slug" element={<ArticleDetail />} />
               <Route path="/aboutus" element={<About />} />
             </Routes>
           </main>
